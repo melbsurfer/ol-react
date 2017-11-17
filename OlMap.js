@@ -27,7 +27,7 @@ class OlMap extends Component {
 
   render() {
       return(
-        <div id='map'/>
+        <div id='map'>blah</div>
       );
   }
 

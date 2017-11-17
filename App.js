@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 
 import { WFS_URL, THUMBNAIL_SERVICE } from './config';
 import OlMap from './OlMap'
+import Wfs from './libs/Wfs';
 
 class App extends Component {
   componentDidMount(){
-    console.log(`${WFS_URL}`);
-    console.log(THUMBNAIL_SERVICE);
+    const wfs = new Wfs();
+    wfs.getFeature();
   }
   render(){
     return (
       <div>
-        <h1>Openlayers with React</h1>
+        <h1>Openlayers | React</h1>
         <OlMap/>
       </div>
     )

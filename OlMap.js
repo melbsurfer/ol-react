@@ -4,8 +4,9 @@ import 'ol/ol.css';
 import Map from 'ol/map';
 import View from 'ol/view';
 import TileLayer from 'ol/layer/tile';
-//import XYZ from 'ol/source/xyz';
 import TileWMS from 'ol/source/tilewms';
+
+import { BASIC_BASEMAP } from './config';
 
 class OlMap extends Component {
 
@@ -15,7 +16,7 @@ class OlMap extends Component {
         layers: [
           new TileLayer({
               source: new TileWMS({
-                url: "https://omar-dev.ossim.io/omar-mapproxy/service",
+                url: `${BASIC_BASEMAP}/omar-mapproxy/service`,
                 params: {
                   'VERSION': '1.1.1',
                   'LAYERS': 'o2-basemap-basic',

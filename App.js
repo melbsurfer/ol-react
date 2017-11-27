@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { WFS_URL, THUMBNAIL_SERVICE } from './config';
 import OlMap from './OlMap';
 import ImageGrid from './ImageGrid';
-//import Wfs from './libs/Wfs';
 
 class App extends Component {
 

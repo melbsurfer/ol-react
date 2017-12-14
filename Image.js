@@ -19,13 +19,13 @@ class Image extends Component {
     return (
       <div style={divStyle}>
         <p style={pStyle}>Image</p>
-        {/* <p style={pStyle}>Image: {this.props.data.properties.id}</p>
+        <p style={pStyle}>Image: {this.props.data.properties.id}</p>
         <ImageThumbnail
           filename={this.props.data.properties.filename}
           entry_id={this.props.data.properties.entry_id}
           size={THUMBNAIL_SERVICE.size}
           format={THUMBNAIL_SERVICE.format}
-        /> */}
+        />
       </div>
     )
   }

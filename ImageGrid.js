@@ -15,10 +15,10 @@ class ImageGrid extends Component {
       totalFeatures: 'Calculating...',
     }
 
-    this.handleLoadData = this.handleLoadData.bind(this);
+    //this.handleLoadData = this.handleLoadData.bind(this);
   }
 
-  handleLoadData(page) {
+  handleLoadData = (page) => {
 
     console.log(`handleLoadMore page: ${page}`);
 
@@ -79,7 +79,7 @@ class ImageGrid extends Component {
           {this.state.images.map(function(image, i) {
             return <Image key={i} data={image} />
           })}
-          <InfiniteScroll
+          {/* <InfiniteScroll
             pageStart={0}
             loadMore={this.handleLoadData}
             hasMore={true || false}
@@ -87,7 +87,7 @@ class ImageGrid extends Component {
             useWindow={true}
           >
           {<Image />}
-          </InfiniteScroll>
+          </InfiniteScroll> */}
         </div>
       )
     }

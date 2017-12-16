@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import InfiniteScroll from 'react-infinite-scroller'
+import InfiniteScroll from 'react-infinite-scroller';
 
 import Wfs from './libs/Wfs';
 import Image from './Image';
 
 class ImageGrid extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
       images: [],
       totalFeatures: 'Calculating...',
-    }
+    };
 
-    //this.handleLoadData = this.handleLoadData.bind(this);
+    // this.handleLoadData = this.handleLoadData.bind(this);
   }
 
   handleLoadData = (page) => {
@@ -37,7 +37,6 @@ class ImageGrid extends Component {
   }
 
   componentDidMount() {
-
     // const wfs = new Wfs();
 
     // wfs.getDataHits().then(function(hits) {
@@ -53,32 +52,28 @@ class ImageGrid extends Component {
     this.handleLoadData(0);
 
     console.log('ComponentDidMount firing!');
-
   }
 
   render() {
-
     console.log('state (in render): ', this.state);
 
     const divStyle = {
       borderColor: '#ccc',
-      border: 'solid'
+      border: 'solid',
     };
 
     const pStyle = {
-      color: 'purple'
-    }
+      color: 'purple',
+    };
 
     if (this.state.images.length === 0) {
-      return <p>Loading...</p>
+      return <p>Loading...</p>;
     }
-    else {
-      return (
+
+    return (
         <div style={divStyle}>
           <p style={pStyle}>Image Grid</p>
-          {this.state.images.map(function(image, i) {
-            return <Image key={i} data={image} />
-          })}
+          {this.state.images.map((image) => <Image key={image.properties.id} data={image} />)}
           {/* <InfiniteScroll
             pageStart={0}
             loadMore={this.handleLoadData}
@@ -89,11 +84,8 @@ class ImageGrid extends Component {
           {<Image />}
           </InfiniteScroll> */}
         </div>
-      )
-    }
-
+    );
   }
-
 }
 
 export default ImageGrid;

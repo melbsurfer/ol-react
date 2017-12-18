@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
 } from 'react-router-dom';
 
-// import OlMap from './OlMap';
+import Nav from './Nav';
+import OlMap from './OlMap';
 import ImageGrid from './ImageGrid';
+import ImageDetail from './ImageDetail';
 
 class App extends Component {
   render() {
@@ -14,19 +17,17 @@ class App extends Component {
       <Router>
         <div>
           <h1>Openlayers | React | ImageGrid</h1>
-          <Route path="/test" component={Test} />
-          <ImageGrid />
-          {/* <OlMap/> */}
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={ImageGrid} />
+            <Route path="/map" component={OlMap} />
+            <Route path="/:id" component={ImageDetail} />
+          </Switch>
         </div>
       </Router>
     );
   }
 }
-
-const Test = () => (
-  <h1>TEST</h1>
-);
-
 
 ReactDOM.render(
   <App />,

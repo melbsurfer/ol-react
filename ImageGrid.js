@@ -20,7 +20,7 @@ class ImageGrid extends Component {
 
   handleLoadData = (page) => {
 
-    console.log(`handleLoadMore page: ${page}`);
+    //console.log(`handleLoadMore page: ${page}`);
 
     const wfs = new Wfs();
 
@@ -51,11 +51,11 @@ class ImageGrid extends Component {
 
     this.handleLoadData(0);
 
-    console.log('ComponentDidMount firing!');
+    //console.log('ComponentDidMount firing!');
   }
 
   render() {
-    console.log('state (in render): ', this.state);
+    //console.log('state (in render): ', this.state);
 
     const divStyle = {
       borderColor: '#ccc',

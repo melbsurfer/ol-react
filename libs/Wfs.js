@@ -22,7 +22,7 @@ class Wfs {
       '&resultType=results' +
       '&outputFormat=JSON' +
       `&filter=${encodeURIComponent(filter)
-      }&maxFeatures=20` +
+      }&maxFeatures=50` +
       '&startIndex=0')
       .then((response) => {
         if (!response.ok) {

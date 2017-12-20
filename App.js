@@ -8,7 +8,7 @@ import {
 
 import Nav from './Nav';
 import OlMap from './OlMap';
-import ImageGrid from './ImageGrid';
+import ImageList from './ImageList';
 import ImageDetail from './ImageDetail';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
           <h1>Openlayers | React | ImageGrid</h1>
           <Nav />
           <Switch>
-            <Route exact path="/" component={ImageGrid} />
+            <Route exact path="/" component={ImageList} />
             <Route path="/map" component={OlMap} />
             <Route path="/:id" component={ImageDetail} />
           </Switch>

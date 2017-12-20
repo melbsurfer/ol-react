@@ -9,7 +9,6 @@ const Nav = () => (
     <Link to="/map">
       <li>Map</li>
     </Link>
-
   </ul>
 );
 

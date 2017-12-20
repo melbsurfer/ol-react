@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 
 import InfiniteScroll from 'react-infinite-scroller';
 
+import styled from 'styled-components';
+
 import Wfs from './libs/Wfs';
 import Image from './Image';
 
-class ImageGrid extends Component {
+class ImageList extends Component {
   constructor(props) {
     super(props);
 
@@ -57,35 +59,26 @@ class ImageGrid extends Component {
   render() {
     //console.log('state (in render): ', this.state);
 
-    const divStyle = {
-      borderColor: '#ccc',
-      border: 'solid',
-    };
-
-    const pStyle = {
-      color: 'purple',
-    };
-
     if (this.state.images.length === 0) {
       return <p>Loading...</p>;
     }
 
     return (
-        <div style={divStyle}>
-          <p style={pStyle}>Image Grid</p>
+        <ImageGrid>
           {this.state.images.map((image) => <Image key={image.properties.id} data={image} />)}
-          {/* <InfiniteScroll
-            pageStart={0}
-            loadMore={this.handleLoadData}
-            hasMore={true || false}
-            loader={<div className="loader">Loading ...</div>}
-            useWindow={true}
-          >
-          {<Image />}
-          </InfiniteScroll> */}
-        </div>
+        </ImageGrid>
     );
   }
 }
 
-export default ImageGrid;
+export default ImageList;
+
+const ImageGrid = styled.div`
+  background: #222;
+  display: grid;
+  padding: 3rem;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  justify-items: center;
+`;

@@ -37,7 +37,7 @@ class ImageDetail extends Component {
         <ImageThumbnail
           filename={this.state.images[0].properties.filename}
           entry_id={this.state.images[0].properties.entry_id}
-          size="1280"
+          size={THUMBNAIL_SERVICE.size}
           format={THUMBNAIL_SERVICE.format}
         />
       </div>

@@ -5,22 +5,27 @@ class Wfs {
     this.url = WFS_URL;
   }
 
-  getData() {
-    let filter = '';
+  getData(filter) {
+    console.log(filter);
+    if (filter === undefined) {
+      filter = '';
+    } else {
+      filter = `in(${filter})`;
+    }
 
-    return fetch(WFS_URL +
-      '/getFeature?' +
+    return fetch(`${WFS_URL
+    }/getFeature?` +
       'service=WFS' +
-      '&version=1.0.0' +
+      '&version=1.1.0' +
       '&request=GetFeature ' +
       '&typeName=omar%3Araster_entry' +
       '&resultType=results' +
       '&outputFormat=JSON' +
-      '&filter=' + encodeURIComponent(filter) +
-      '&maxFeatures=20' +
+      `&filter=${encodeURIComponent(filter)
+      }&maxFeatures=50` +
       '&startIndex=0')
-      .then(response => {
-        if(!response.ok){
+      .then((response) => {
+        if (!response.ok) {
           throw Error('Network error has occurred!');
         }
         return response;
@@ -31,40 +36,32 @@ class Wfs {
         results = data.features.map(result => result);
         return results;
       });
-
   }
 
   getDataHits(obj) {
-    console.log(WFS_URL);
-    let filter = '';
+    // console.log(WFS_URL);
+    const filter = '';
 
-    return fetch(WFS_URL+
-      '/getFeature?' +
+    return fetch(`${WFS_URL
+    }/getFeature?` +
       'service=WFS' +
       '&request=GetFeature ' +
       '&typeName=omar%3Araster_entry' +
       '&outputFormat=JSON' +
-      '&filter=' + encodeURIComponent(filter) +
-      '&resultType=hits')
-      .then(response => {
-        if(!response) {
+      `&filter=${encodeURIComponent(filter)
+      }&resultType=hits`)
+      .then((response) => {
+        if (!response) {
           alert('A network error has occurred!');
         }
-        if(!response.ok){
+        if (!response.ok) {
           throw Error('Network error has occurred!');
         }
         return response;
       })
       .then(data => data.json())
-      .then((data) => {
-
-        return data.totalFeatures;
-
-      });
-
+      .then(data => data.totalFeatures);
   }
-
-
 }
 
 export default Wfs;

@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 
-import { THUMBNAIL_SERVICE } from './config'
+import styled from 'styled-components';
+
+import { THUMBNAIL_SERVICE } from './config';
 import ImageThumbnail from './ImageThumbnail';
 
 class Image extends Component {
   render() {
-    console.log(this.props);
-    const divStyle = {
-      borderColor: 'red',
-      border: 'solid',
-      width: '100px',
-      height: '100px'
-    }
-    const pStyle = {
-      color: 'purple'
-    }
     return (
-      <div style={divStyle}>
-        <p style={pStyle}>Image: {this.props.data.properties.id}</p>
-        <ImageThumbnail
-          filename={this.props.data.properties.filename}
-          entry_id={this.props.data.properties.entry_id}
-          size={THUMBNAIL_SERVICE.size}
-          format={THUMBNAIL_SERVICE.format}
-        />
-      </div>
-    )
+      <Link to={`/${this.props.data.properties.id}`}>
+        <ImageOutline>
+          <ImageThumbnail
+            filename={this.props.data.properties.filename}
+            entry_id={this.props.data.properties.entry_id}
+            size={THUMBNAIL_SERVICE.size}
+            format={THUMBNAIL_SERVICE.format}
+          />
+          <span>{this.props.data.properties.id}</span>
+        </ImageOutline>
+      </Link>
+    );
   }
 }
 
 export default Image;
+
+const ImageOutline = styled.div`
+  box-shadow 0 0 35px black;
+  color: white;
+  text-align: center;
+`;

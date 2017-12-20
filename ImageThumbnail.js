@@ -2,38 +2,34 @@ import React, { Component } from 'react';
 import { THUMBNAIL_SERVICE } from './config';
 
 class ImageThumbnail extends Component {
-
   constructor(props) {
-
     super(props);
 
     this.state = {
-      thumbUrl: ''
-    }
-
+      thumbUrl: '',
+    };
   }
 
   componentDidMount() {
-    console.log('props: ', this.props);
-    let url = THUMBNAIL_SERVICE.url +
-      '?filename=' + this.props.filename +
-      '&entry_id=' + this.props.entry_id +
-      '&size=' + this.props.size +
-      '&format=' + this.props.format
+    // console.log('props: ', this.props);
+    const url = `${THUMBNAIL_SERVICE.url
+    }?filename=${this.props.filename
+    }&entry_id=${this.props.entry_id
+    }&size=${this.props.size
+    }&format=${this.props.format}`;
 
-      this.setState({
-        thumbUrl: url
-      });
-
+    this.setState({
+      thumbUrl: url,
+    });
   }
 
   render() {
     return (
       <div>
-        <img src={this.state.thumbUrl} />
+        <img src={this.state.thumbUrl} alt="thumbnail" />
       </div>
 
-    )
+    );
   }
 }
 

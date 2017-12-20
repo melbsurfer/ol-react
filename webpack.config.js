@@ -3,21 +3,27 @@ const webpack = require('webpack');
 module.exports = {
   entry: './App.js',
   output: {
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/',
   },
+  devtool: 'eval-source-map', // Helps with debugging...
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'}
-        ]
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ],
       },
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
-    ]
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+    ],
   },
-  // plugins: [
-  //   new webpack.optimize.UglifyJsPlugin()
-  // ]
+  devServer: {
+    historyApiFallback: true, // needed for react-router https://www.youtube.com/watch?v=_Fzl0Cim6F8&t=41s ~16:01
+  },
 };

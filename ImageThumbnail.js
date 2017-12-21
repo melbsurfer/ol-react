@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { THUMBNAIL_SERVICE } from './config';
 
 class ImageThumbnail extends Component {
@@ -11,7 +12,6 @@ class ImageThumbnail extends Component {
   }
 
   componentDidMount() {
-    // console.log('props: ', this.props);
     const url = `${THUMBNAIL_SERVICE.url
     }?filename=${this.props.filename
     }&entry_id=${this.props.entry_id
@@ -28,7 +28,6 @@ class ImageThumbnail extends Component {
       <div>
         <img src={this.state.thumbUrl} alt="thumbnail" />
       </div>
-
     );
   }
 }

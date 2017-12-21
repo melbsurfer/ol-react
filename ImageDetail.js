@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Overdrive from 'react-overdrive';
+import styled from 'styled-components';
 
 import { THUMBNAIL_SERVICE } from './config';
 
@@ -31,18 +33,51 @@ class ImageDetail extends Component {
     if (this.state.images.length === 0) {
       return <p>Loading...</p>;
     }
+
+    console.log(this.state.images[0].properties.id.toString());
+
     return (
       <div>
         <h1>Image Detail</h1>
-        <ImageThumbnail
-          filename={this.state.images[0].properties.filename}
-          entry_id={this.state.images[0].properties.entry_id}
-          size={THUMBNAIL_SERVICE.size}
-          format={THUMBNAIL_SERVICE.format}
-        />
+        <ImageWrapper>
+          <ImageInfo>
+            <ImageOutline>
+              <Overdrive id="foo" duration={5000}>
+                {/* <ImageThumbnail
+                  filename={this.state.images[0].properties.filename}
+                  entry_id={this.state.images[0].properties.entry_id}
+                  size={THUMBNAIL_SERVICE.size}
+                  format={THUMBNAIL_SERVICE.format}
+                /> */}
+                <div id="test">TEST!</div>
+              </Overdrive>
+            </ImageOutline>
+          </ImageInfo>
+        </ImageWrapper>
       </div>
     );
   }
 }
 
 export default ImageDetail;
+
+const ImageOutline = styled.div`
+  box-shadow 0 0 35px black;
+`;
+
+const ImageWrapper = styled.div`
+  position: relative:
+  top: 50vh;
+`;
+
+const ImageInfo = styled.div`
+  text-align: left;
+  padding: 2rem 10%;
+  display: flex;
+  > div {
+    margin-left: 20px;
+  }
+  img {
+    position: relative;
+  }
+`;

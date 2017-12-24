@@ -34,7 +34,7 @@ class ImageDetail extends Component {
       return <p>Loading...</p>;
     }
 
-    console.log(this.state.images[0].properties.id.toString());
+    console.log('ImageDetails ID: ', this.state.images[0].properties.id.toString());
 
     return (
       <div>
@@ -42,14 +42,13 @@ class ImageDetail extends Component {
         <ImageWrapper>
           <ImageInfo>
             <ImageOutline>
-              <Overdrive id="foo" duration={5000}>
-                {/* <ImageThumbnail
+              <Overdrive id={this.state.images[0].properties.id.toString()}>
+                <ImageThumbnail
                   filename={this.state.images[0].properties.filename}
                   entry_id={this.state.images[0].properties.entry_id}
                   size={THUMBNAIL_SERVICE.size}
                   format={THUMBNAIL_SERVICE.format}
-                /> */}
-                <div id="test">TEST!</div>
+                />
               </Overdrive>
             </ImageOutline>
           </ImageInfo>
@@ -80,4 +79,9 @@ const ImageInfo = styled.div`
   img {
     position: relative;
   }
+`;
+
+const TestDiv = styled.div`
+width: 300px;
+height: 300px;
 `;

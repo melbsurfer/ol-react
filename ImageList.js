@@ -76,8 +76,8 @@ export default ImageList;
 const ImageGrid = styled.div`
   background: #222;
   display: grid;
-  padding: 3rem;
-  grid-template-columns: repeat(6, 1fr);
+  padding: 1rem;
+  grid-template-columns: repeat(5,1fr);
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
   justify-items: center;

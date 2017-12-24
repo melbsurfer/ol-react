@@ -9,21 +9,22 @@ import ImageThumbnail from './ImageThumbnail';
 
 class Image extends Component {
   render() {
-    console.log(`Image: ${this.props.data.properties.id.toString()}`);
+    console.log(`Image ID: ${this.props.data.properties.id.toString()}`);
     return (
       <div>
         <Link to={`/${this.props.data.properties.id}`}>
           <ImageOutline>
-            <Overdrive id="foo" duration={1000}>
-              {/* <ImageThumbnail
-                id={this.props.data.properties.id}
-                filename={this.props.data.properties.filename}
-                entry_id={this.props.data.properties.entry_id}
-                size={THUMBNAIL_SERVICE.size}
-                format={THUMBNAIL_SERVICE.format}
-              /> */}
-              {/* <span>{this.props.data.properties.id}</span> */}
-              <div id="test">TEST!</div>
+            <Overdrive id="{this.props.data.properties.id.toString()}">
+              <div>
+                <span>{this.props.data.properties.id}</span>
+                <ImageThumbnail
+                  id={this.props.data.properties.id}
+                  filename={this.props.data.properties.filename}
+                  entry_id={this.props.data.properties.entry_id}
+                  size={THUMBNAIL_SERVICE.size}
+                  format={THUMBNAIL_SERVICE.format}
+                />
+              </div>
             </Overdrive>
           </ImageOutline>
         </Link>

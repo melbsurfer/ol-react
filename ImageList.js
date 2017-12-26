@@ -74,11 +74,10 @@ class ImageList extends Component {
 export default ImageList;
 
 const ImageGrid = styled.div`
-  background: #222;
   display: grid;
-  padding: 1rem;
-  grid-template-columns: repeat(5,1fr);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-rows: 100px 100px
+  grid-auto-rows: 100px;
+  grid-gap: 5px;
   justify-items: center;
 `;

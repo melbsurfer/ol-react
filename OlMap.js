@@ -9,35 +9,33 @@ import TileWMS from 'ol/source/tilewms';
 import { BASIC_BASEMAP } from './config';
 
 class OlMap extends Component {
-
-  componentDidMount(){
+  componentDidMount() {
     new Map({
       target: 'map',
-        layers: [
-          new TileLayer({
-              source: new TileWMS({
-                url: `${BASIC_BASEMAP}/omar-mapproxy/service`,
-                params: {
-                  'VERSION': '1.1.1',
-                  'LAYERS': 'o2-basemap-basic',
-                  'FORMAT': 'image/jpeg'
-                }
-              })
-          })
-        ],
-        view: new View({
-            center: [0, 0],
-            zoom: 2
-        })
+      layers: [
+        new TileLayer({
+          source: new TileWMS({
+            url: `${BASIC_BASEMAP}/omar-mapproxy/service`,
+            params: {
+              VERSION: '1.1.1',
+              LAYERS: 'o2-basemap-basic',
+              FORMAT: 'image/jpeg',
+            },
+          }),
+        }),
+      ],
+      view: new View({
+        center: [0, 0],
+        zoom: 2,
+      }),
     });
   }
 
   render() {
-      return(
-        <div id='map' />
-      );
+    return (
+      <div id="map" />
+    );
   }
-
 }
 
 export default OlMap;

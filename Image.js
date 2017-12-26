@@ -16,7 +16,6 @@ class Image extends Component {
           <ImageOutline>
             <Overdrive id="{this.props.data.properties.id.toString()}">
               <div>
-                <span>{this.props.data.properties.id}</span>
                 <ImageThumbnail
                   id={this.props.data.properties.id}
                   filename={this.props.data.properties.filename}
@@ -24,6 +23,7 @@ class Image extends Component {
                   size={THUMBNAIL_SERVICE.size}
                   format={THUMBNAIL_SERVICE.format}
                 />
+                <div>{this.props.data.properties.id}</div>
               </div>
             </Overdrive>
           </ImageOutline>
@@ -36,7 +36,8 @@ class Image extends Component {
 export default Image;
 
 const ImageOutline = styled.div`
-  box-shadow 0 0 35px black;
+  // box-shadow 0 0 35px black;
   color: white;
   text-align: center;
+  background-color: green; //#222;
 `;

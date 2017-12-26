@@ -6,6 +6,6 @@ export const WFS_URL = `${SERVER_URL}/omar-wfs/wfs`;
 
 export const THUMBNAIL_SERVICE = {
   url: `${SERVER_URL}/omar-oms/imageSpace/getThumbnail`,
-  size: 100,
+  size: 150,
   format: 'jpeg',
 };

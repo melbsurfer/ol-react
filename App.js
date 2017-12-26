@@ -6,7 +6,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import Nav from './Nav';
+import Header from './Header';
 import OlMap from './OlMap';
 import ImageList from './ImageList';
 import ImageDetail from './ImageDetail';
@@ -16,8 +16,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h1>Openlayers | React | ImageGrid</h1>
-          <Nav />
+          <Header />
           <Switch>
             <Route exact path="/" component={ImageList} />
             <Route path="/map" component={OlMap} />

@@ -25,9 +25,7 @@ class ImageThumbnail extends Component {
 
   render() {
     return (
-      <div>
-        <img src={this.state.thumbUrl} alt="thumbnail" />
-      </div>
+      <img src={this.state.thumbUrl} alt="thumbnail" />
     );
   }
 }
@@ -40,3 +38,4 @@ class ImageThumbnail extends Component {
 // }
 
 export default ImageThumbnail;
+
